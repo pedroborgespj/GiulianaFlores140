@@ -13,7 +13,7 @@ class Test_Usuarios():
     def teardown_method(self, method):
         self.driver.quit()
 
-    def test_cadastrar_usuario(self):
+    def test_login_positive(self):
         self.driver.get(self.url)
         self.driver.find_element(By.CSS_SELECTOR, "#perfil-hidden > img").click()
         self.driver.find_element(By.CSS_SELECTOR, "#UrlLogin > a").click()
