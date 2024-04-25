@@ -11,3 +11,21 @@ Feature: Comprar Produto
         When acesso a pagina de login
         And preencho os campos de email levi.jorge.ribeiro@iblojas.com.br e senha 2QOEZxRQPX
         Then o login do usuário Levi é realizado com sucesso
+
+    Scenario Outline: Login negativo
+        Given que acesso o site Giuliana Flores
+        When acesso a pagina de login
+        And preencho os campos de email <email> e senha <senha>
+        Then exibe a <mensagem> de erro no login
+
+        Examples:
+        | id | email                             | senha         | mensagem                               |
+        | 01 | levi.jorge.ribeiro@iblojas.com.br | laranja123    | e-mail ou senha inválidos!             |
+        | 02 |                                   | 2QOEZxRQPX    | Verifique o E-mail ou CPF digitado!    |
+        | 03 | juca@email.com                    | 2QOEZxRQPX    | e-mail ou senha inválidos!             |
+    
+    Scenario: Compra de produto pelo banner
+        Given que acesso o site Giuliana Flores
+        When coloco o primeiro item do banner no carrinho
+        And finalizo a compra na página do carrinho
+        Then sou direcionado para a página de login

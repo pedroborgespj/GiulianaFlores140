@@ -21,4 +21,4 @@ class Test_Usuarios():
         self.driver.find_element(By.ID, "ContentSite_txtEmail").send_keys("carlos_eduardo_depaula@siemens.com")
         self.driver.find_element(By.ID, "ContentSite_txtPassword").send_keys("abcde123")
         self.driver.find_element(By.ID, "ContentSite_ibtContinue").click()
-        self.driver.find_element(By.CLASS_NAME, "font_erro").text == 'e-mail ou senha inválidos!'
+        assert self.driver.find_element(By.CLASS_NAME, "font_erro").text == 'e-mail ou senha inválidos!'
